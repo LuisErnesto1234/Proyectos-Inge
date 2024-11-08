@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Proyecto</title>
+    <link rel="stylesheet" type="text/css" href="/estilo_servicio5.css">
+    <link rel="stylesheet" href="https://sliderm.com/dist/1.0.8/sliderm.css">
+</head>
+
+<body>
+    <div class="social-icons">
+        <a href="#" ><img src="imagenes/facebook.png" class="social-icon"></a>
+        <a href="https://wa.link/v09oez" ><img src="imagenes/whatsapp.png" class="social-icon"></a>
+        <a href="#" ><img src="imagenes/instagram.png" class="social-icon"></a>
+    </div>
+
+<div class="services-title">
+    <h2 th:text="${proyecto.titulo}"></h2>
+</div>
+<div class="container">
+
+    <div class="content">
+        <div id="exampe-slider" class="sliderm">
+            <div class="sliderm__slider">
+                <!-- Aquí está el contenedor único para todas las diapositivas -->
+                <div class="sliderm__slides">
+                    <div th:each="imagen : ${proyecto.imagenes}" class="sliderm__slide">
+                        <img th:src="@{|/${imagen}|}" alt="Imagen del proyecto" class="w-full h-auto object-cover" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content" style="flex-direction: column; text-align: left">
+        <div class="tool-content" style="flex-direction: column; text-align: left; align-items: baseline">
+            <h3>Descripción</h3>
+            <p th:utext="${proyecto.descripcion}"></p>
+        </div>
+    </div>
+</div>
+
+    <!-- Swiper JS -->
+    <script src="https://sliderm.com/dist/1.0.8/sliderm.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var slider = new Sliderm('#exampe-slider', {
+                loop: true,  // Habilita el loop para que el slider vuelva a empezar cuando llegue al final
+                slidesPerView: 2, // Asegura que solo se muestre una imagen por diapositiva
+                spaceBetween: 10, // Espacio entre las diapositivas
+                navigation: {
+                    nextEl: '.swiper-button-next', // Botón siguiente
+                    prevEl: '.swiper-button-prev', // Botón previo
+                },
+            });
+        });
+    </script>
+
+</body>
+</html>

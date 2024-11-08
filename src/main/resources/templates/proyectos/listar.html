@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Proyectos</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+<div class="container mx-auto p-4">
+  <h1 class="text-2xl font-bold mb-4">Proyectos</h1>
+  <a href="/proyectos/nuevo" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Crear Nuevo Proyecto</a>
+
+  <!-- Botón de Logout -->
+  <a href="/logout" class="bg-red-500 text-white px-4 py-2 rounded ml-4 hover:bg-red-700" onclick="return confirm('¿Estás seguro de que deseas cerrar sesión?')">Cerrar Sesión</a>
+
+  <a href="/usuarios/perfil" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Perfil</a>
+
+  <a href="/usuarios/actualizarCorreo" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Actualizar correo</a>
+
+
+  <div class="overflow-x-auto mt-4">
+    <table class="min-w-full bg-white border border-gray-200">
+      <thead>
+        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+          <th class="py-3 px-6 text-left">ID</th>
+          <th class="py-3 px-6 text-left">Nombre</th>
+          <th class="py-3 px-6 text-left">Descripción</th>
+          <th class="py-3 px-6 text-left">Fecha Creacion</th>
+          <th class="py-3 px-6 text-left">Imagenes</th>
+          <th class="py-3 px-6 text-left">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-600 text-sm font-light">
+        <tr th:each="proyecto : ${proyectos}" class="border-b border-gray-200 hover:bg-gray-100">
+          <td class="py-3 px-6 text-left whitespace-nowrap" th:text="${proyecto.id}"></td>
+          <td class="py-3 px-6 text-left" th:text="${proyecto.titulo}"></td>
+          <td class="py-3 px-6 text-left" th:text="${proyecto.descripcion}"></td>
+          <td class="py-3 px-6 text-left" th:text="${proyecto.fechaCreacion}"></td>
+          <td class="py-3 px-6 text-left">
+            <div th:each="imagen : ${proyecto.imagenes}" class="flex">
+              <img th:src="${imagen}" alt="Imagen del proyecto" class="w-20 h-auto mr-2"/>
+            </div>
+          </td>
+          <td class="py-3 px-6 text-left">
+            <a th:href="@{/proyectos/editar/{id}(id=${proyecto.id})}" class="text-blue-500 hover:underline">Editar</a>
+            <a th:href="@{/proyectos/eliminar/{id}(id=${proyecto.id})}" class="text-red-500 hover:underline ml-2" onclick="return confirm('¿Estás seguro de que deseas eliminar este proyecto?')">Eliminar</a>
+            <a th:href="@{/proyectos/ver/{id}(id=${proyecto.id})}" class="text-orange-500 hover:underline ml-2">Ver</a>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.js"></script>
+</body>
+</html>

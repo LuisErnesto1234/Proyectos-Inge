@@ -1,0 +1,248 @@
+body {
+    background-color: #EBEBEB;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #7666F4;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Alinea los elementos a ambos lados del header */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.logo-container {
+    order: 2; /* Cambia el orden para que el logo aparezca al final */
+}
+
+.logo-container img {
+    width: 90px; /* Ajusta el tamaÃ±o del logo segÃºn tus necesidades */
+    height: auto; /* Esto mantiene la proporciÃ³n del logo */
+    margin-left: 20%;
+}
+
+nav {
+    order: 3;
+    margin-left: auto !important; /* Alinea a la derecha */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+
+nav li {
+    margin-left: 20px; /* Ajusta el espacio entre los elementos del menÃº segÃºn tus necesidades */
+}
+
+/* Estilo de Iconos */
+.social-icons {
+    order: 4;
+    display: flex;
+    align-items: center; /* Centra verticalmente los iconos */
+    justify-content: flex-end; /* Alinea los iconos a la derecha */
+    margin-right: 40px; /* Ajusta el margen derecho del contenedor de iconos */
+}
+
+/* AÃ±adir este bloque al final de tu CSS actual */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 30px; /* Alinea a la derecha */
+    z-index: 1000;
+}
+
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: flex-end; /* Alinea a la derecha */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+}
+
+.nav-list li {
+    margin-left: 20px;
+}
+
+/* AÃ±adir estilos especÃ­ficos para dispositivos mÃ³viles */
+@media only screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: row;
+        position: absolute;
+        top: 100px;
+        right: 20px; /* Ajuste para no sobresalir */
+        width: 80%; /* Ajuste para no sobresalir */
+        max-width: 300px; /* Ancho mÃ¡ximo para dispositivos mÃ³viles */
+        background-color: #7666F4;
+        padding: 20px;
+        z-index: 999;
+        border-radius: 8px; /* Esquinas redondeadas */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    }
+
+    .social-icons {
+        display: none; /* Oculta los iconos */
+    }
+
+    .nav-list.show {
+        display: flex;
+    }
+
+    .nav-list li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
+
+
+.social-icons .social-icon {
+    width: 22px;
+    height: 22px;
+    margin-left: 10px; /* Ajusta el margen izquierdo de los iconos segÃºn sea necesario */
+    border-radius: 50%;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+section {
+    padding: 20px;
+}
+
+footer {
+    background-color: #7666F4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+}
+
+footer p,
+footer ul {
+    margin: 20px;
+}
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+ul {
+    color: white;
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+/*ESTILO DE LA INFORMACION*/
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex: 100%;
+    }
+}
+.tool-content {
+    display: flex;
+    align-items: center;
+}
+
+.tool-content img {
+    margin-right: 10px; /* Ajusta el margen segÃºn sea necesario */
+    max-width: 20px; /* Establece el ancho mÃ¡ximo de la imagen a 20px */
+    height: auto; /* Mantiene la proporciÃ³n original al ajustar el ancho */
+}
+.tool-content p {
+    margin: 10px; /* Elimina el margen predeterminado del pÃ¡rrafo */
+}
+/* Estilo para el contenedor del tÃ­tulo */
+.services-title {
+    text-align: center;
+    margin-top: 30px; /* Ajusta el espacio superior segÃºn tu preferencia */
+    margin-bottom: 20px; /* Ajusta el espacio inferior segÃºn tu preferencia */
+    padding: 20px;
+    border: 2px solid #3498db; /* Color del borde */
+    border-radius: 10px; /* Bordes redondeados */
+    max-width: 80%; /* Ancho mÃ¡ximo del contenedor */
+    margin-left: auto; /* Centrar el contenedor */
+    margin-right: auto; /* Centrar el contenedor */
+    background-color: #ddf3f8; /* Color de fondo */
+}
+
+/* Estilo para el tÃ­tulo dentro del contenedor */
+.services-title h2 {
+    color: #3498db; /* Color del texto */
+    margin: 0;
+}
+/*ADICIONAL*/
+.whatsapp-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    padding: 8px; /* Ajuste del padding */
+    border-radius: 10px;
+    display: flex;
+    align-items: center; /* AlineaciÃ³n central vertical */
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    max-width: 300px; /* Ancho mÃ¡ximo ajustado */
+    cursor: pointer;
+    margin-left: auto; /* Mueve el cuadro al extremo derecho */
+}
+
+.whatsapp-icon {
+    width: 20px; /* Ajuste del tamaÃ±o de la imagen */
+    height: 20px;
+    margin-right: 8px; /* Espacio entre la imagen y el texto */
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 18px;
+    color: #fff;
+    margin-right: 10px; /* Ajuste del espacio entre la "X" y el borde derecho */
+}
